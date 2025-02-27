@@ -75,3 +75,11 @@ This project is licensed under the MIT License.
 [attendencecmp.netlify.app](https://attendencecmp.netlify.app)
 
 # Damo
+
+https://github.com/user-attachments/assets/0a9223d8-a64e-44db-b36d-7882bfff6451
+
+
+
+
+
+
