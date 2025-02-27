@@ -72,3 +72,4 @@ Attendance/
 This project is licensed under the MIT License.
 
 # live link
+attendencecmp.netlify.app
