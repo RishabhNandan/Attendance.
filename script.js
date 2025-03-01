@@ -3,7 +3,6 @@ let attendance = {};
 let username = '';
 let password = '';
 let registeredUsers = {};
-
 $(document).ready(function() {
     if (localStorage.getItem('username') && localStorage.getItem('password')) {
         username = localStorage.getItem('username');
@@ -17,7 +16,6 @@ $(document).ready(function() {
         $('#exportToExcelButton').show();
         $('#studentTable').show();
     }
-
     $('#loginForm').submit(function(e) {
         e.preventDefault();
         let inputUsername = $('#username').val();
@@ -61,7 +59,6 @@ $(document).ready(function() {
             console.log('Passwords do not match');
         }
     });
-
     $('#addStudentForm').submit(function(e) {
         e.preventDefault();
         let studentId = $('#studentId').val();
@@ -88,7 +85,6 @@ $(document).ready(function() {
         });
         $('#markAttendanceModal').modal('hide');
     });
-
     $('#viewAttendanceButton').click(function() {
         let attendanceHtml = '<table class="table table-striped"><thead><tr><th>Name</th><th>Subject</th><th>Attendance</th></tr></thead><tbody>';
         $('#studentTableBody tr').each(function() {
@@ -125,7 +121,6 @@ $(document).ready(function() {
         });
     });
 
-    // Set current date and time
-    let currentTime = moment().format('YYYY-MM-DD HH:mm:ss');
+    let currentTime = moment().format('DD-MM-YYYY HH:mm');
     $('#attendanceDateTime input').val(currentTime);
 });
