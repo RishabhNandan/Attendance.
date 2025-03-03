@@ -84,6 +84,23 @@ $('#markAttendanceForm').submit(function(e) {
     });
     $('#markAttendanceModal').modal('hide');
 });
+    
+    $('#markAttendanceButton').click(function() {
+        $('#markAttendanceModal').modal('show');
+    });
+
+    $('#markAttendanceForm').submit(function(e) {
+        e.preventDefault();
+        let attendanceDateTime = $('#attendanceDateTime input').val();
+        let attendanceStatus = $('#attendanceStatus').val();
+        attendance[attendanceDateTime] = attendanceStatus;
+        $('#studentTableBody tr').each(function() {
+            let studentId = $(this).find('td:first').text();
+            let subject = $(this).find('td:nth-child(3)').text();
+            $(this).find('td:last').text(attendanceStatus + ' at ' + attendanceDateTime + ' for ' + subject);
+        });
+        $('#markAttendanceModal').modal('hide');
+    });
     $('#viewAttendanceButton').click(function() {
         let attendanceHtml = '<table class="table table-striped"><thead><tr><th>Name</th><th>Subject</th><th>Attendance</th></tr></thead><tbody>';
         $('#studentTableBody tr').each(function() {
