@@ -121,6 +121,6 @@ $(document).ready(function() {
         });
     });
 
-    let currentTime = moment().format('DD-MM-YYYY HH:mm');
+    let currentTime = moment().format('YYYY-MM-DD HH:mm');
     $('#attendanceDateTime input').val(currentTime);
 });
