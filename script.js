@@ -59,32 +59,16 @@ $(document).ready(function() {
             console.log('Passwords do not match');
         }
     });
-   // Add checkboxes in the student table
 $('#addStudentForm').submit(function(e) {
-    e.preventDefault();
-    let studentId = $('#studentId').val();
-    let studentName = $('#studentName').val();
-    let subject = $('#subject').val();
-    students.push({ id: studentId, name: studentName, subject: subject });
-    $('#studentTableBody').append('<tr><td><input type="checkbox" class="attendanceCheckbox"></td><td>' + studentId + '</td><td>' + studentName + '</td><td>' + subject + '</td><td></td></tr>');
-    $('#addStudentModal').modal('hide');
-});
-
-// Record attendance based on checkbox state
-$('#markAttendanceForm').submit(function(e) {
-    e.preventDefault();
-    let attendanceDateTime = $('#attendanceDateTime input').val();
-    $('#studentTableBody tr').each(function() {
-        let studentId = $(this).find('td:nth-child(2)').text();
-        let subject = $(this).find('td:nth-child(4)').text();
-        let isChecked = $(this).find('input.attendanceCheckbox').is(':checked');
-        let attendanceStatus = isChecked ? 'Present' : 'Absent';
-        attendance[studentId] = { status: attendanceStatus, dateTime: attendanceDateTime };
-        $(this).find('td:last').text(attendanceStatus + ' at ' + attendanceDateTime + ' for ' + subject);
+        e.preventDefault();
+        let studentId = $('#studentId').val();
+        let studentName = $('#studentName').val();
+        let subject = $('#subject').val();
+        students.push({ id: studentId, name: studentName, subject: subject });
+        $('#studentTableBody').append('<tr><td>' + studentId + '</td><td>' + studentName + '</td><td>' + subject + '</td><td></td></tr>');
+        $('#addStudentModal').modal('hide');
     });
-    $('#markAttendanceModal').modal('hide');
-});
-    
+
     $('#markAttendanceButton').click(function() {
         $('#markAttendanceModal').modal('show');
     });
