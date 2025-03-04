@@ -92,6 +92,15 @@ $('#addStudentForm').submit(function(e) {
         $('#studentTableBody').append('<tr><td>' + studentId + '</td><td>' + studentName + '</td><td>' + subject + '</td><td></td></tr>');
         $('#addStudentModal').modal('hide');
     });
+$('#addStudentForm').submit(function(e) {
+        e.preventDefault();
+        let studentId = $('#studentId').val();
+        let studentName = $('#studentName').val();
+        let subject = $('#subject').val();
+        students.push({ id: studentId, name: studentName, subject: subject });
+        $('#studentTableBody').append('<tr><td>' + studentId + '</td><td>' + studentName + '</td><td>' + subject + '</td><td></td></tr>');
+        $('#addStudentModal').modal('hide');
+    });
 
     $('#markAttendanceButton').click(function() {
         $('#markAttendanceModal').modal('show');
@@ -109,24 +118,6 @@ $('#addStudentForm').submit(function(e) {
         });
         $('#markAttendanceModal').modal('hide');
     });
-
-$(document).on('submit', '#markAttendanceForm', function(e) {
-    e.preventDefault();
-    let attendanceDateTime = $('#attendanceDateTimeInput').val();
-    $('.attendanceCheckbox').each(function() {
-        let studentId = $(this).data('id');
-        let studentRow = $('#studentTableBody').find('td:first-child').filter(function() {
-            return $(this).text() == studentId;
-        }).parent();
-        if ($(this).is(':checked')) {
-            attendance[studentId] = 'Present at ' + attendanceDateTime;
-        } else {
-            attendance[studentId] = 'Absent at ' + attendanceDateTime;
-        }
-        studentRow.find('td:last').text(attendance[studentId]);
-    });
-    $('#markAttendanceModal').modal('hide');
-});
 
 });
     $('#viewAttendanceButton').click(function() {
