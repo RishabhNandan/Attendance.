@@ -3,6 +3,7 @@ let attendance = {};
 let username = '';
 let password = '';
 let registeredUsers = {};
+
 $(document).ready(function() {
     if (localStorage.getItem('username') && localStorage.getItem('password')) {
         username = localStorage.getItem('username');
@@ -16,6 +17,7 @@ $(document).ready(function() {
         $('#exportToExcelButton').show();
         $('#studentTable').show();
     }
+
     $('#loginForm').submit(function(e) {
         e.preventDefault();
         let inputUsername = $('#username').val();
@@ -59,40 +61,8 @@ $(document).ready(function() {
             console.log('Passwords do not match');
         }
     });
-$('#addStudentForm').submit(function(e) {
-        e.preventDefault();
-        let studentId = $('#studentId').val();
-        let studentName = $('#studentName').val();
-        let subject = $('#subject').val();
-        students.push({ id: studentId, name: studentName, subject: subject });
-        $('#studentTableBody').append('<tr><td>' + studentId + '</td><td>' + studentName + '</td><td>' + subject + '</td><td></td></tr>');
-        $('#addStudentModal').modal('hide');
-    });
 
-$('#addStudentForm').submit(function(e) {
-        e.preventDefault();
-        let studentId = $('#studentId').val();
-        let studentName = $('#studentName').val();
-        let subject = $('#subject').val();
-        students.push({ id: studentId, name: studentName, subject: subject });
-        $('#studentTableBody').append('<tr><td>' + studentId + '</td><td>' + studentName + '</td><td>' + subject + '</td><td></td></tr>');
-        $('#addStudentModal').modal('hide');
-    });
-
-    $('#markAttendanceButton').click(function() {
-        $('#markAttendanceModal').modal('show');
-    });
-
-$('#addStudentForm').submit(function(e) {
-        e.preventDefault();
-        let studentId = $('#studentId').val();
-        let studentName = $('#studentName').val();
-        let subject = $('#subject').val();
-        students.push({ id: studentId, name: studentName, subject: subject });
-        $('#studentTableBody').append('<tr><td>' + studentId + '</td><td>' + studentName + '</td><td>' + subject + '</td><td></td></tr>');
-        $('#addStudentModal').modal('hide');
-    });
-$('#addStudentForm').submit(function(e) {
+    $('#addStudentForm').submit(function(e) {
         e.preventDefault();
         let studentId = $('#studentId').val();
         let studentName = $('#studentName').val();
@@ -119,7 +89,6 @@ $('#addStudentForm').submit(function(e) {
         $('#markAttendanceModal').modal('hide');
     });
 
-});
     $('#viewAttendanceButton').click(function() {
         let attendanceHtml = '<table class="table table-striped"><thead><tr><th>Name</th><th>Subject</th><th>Attendance</th></tr></thead><tbody>';
         $('#studentTableBody tr').each(function() {
@@ -155,6 +124,11 @@ $('#addStudentForm').submit(function(e) {
             format: 'YYYY-MM-DD HH:mm:ss'
         });
     });
+
+    // Set current date and time
+    let currentTime = moment().format('YYYY-MM-DD HH:mm:ss');
+    $('#attendanceDateTime input').val(currentTime);
+});
 
     let currentTime = moment().format('YYYY-MM-DD HH:mm');
     $('#attendanceDateTime input').val(currentTime);
