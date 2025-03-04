@@ -1,17 +1,18 @@
 body {
     font-family: Arial, sans-serif;
-    background: url('/yt.png') no-repeat center center fixed;
+    background: url('yt.png') no-repeat center center fixed;
     background-size: cover;
     margin: 0;
     padding: 0;
 }
 
 .container-fluid {
-    padding: 250px;
+    padding: 230px;
     text-align: center;
 }
 
 h1 {
+    font-weight: bold;
     margin-bottom: 20px;
 }
 
