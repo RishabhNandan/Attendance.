@@ -73,15 +73,18 @@ $('#addStudentForm').submit(function(e) {
         $('#markAttendanceModal').modal('show');
     });
 
-   $('#markAttendanceForm').submit(function(e) {
+   // Add the select box in the student row
+$('#studentTableBody').append('<tr><td>' + studentId + '</td><td>' + studentName + '</td><td>' + subject + '</td><td><input type="checkbox" class="attendanceCheckbox"></td></tr>');
+
+// Modify the mark attendance functionality
+$('#markAttendanceForm').submit(function(e) {
     e.preventDefault();
     let attendanceDateTime = $('#attendanceDateTime input').val();
-    let attendanceStatus = $('#attendanceStatus').val(); // This should be modified to get individual student statuses
     $('#studentTableBody tr').each(function() {
         let studentId = $(this).find('td:first').text();
         let studentName = $(this).find('td:nth-child(2)').text();
         let subject = $(this).find('td:nth-child(3)').text();
-        let isPresent = $(this).find('input[type="checkbox"]').is(':checked'); // Assuming there's a checkbox for each student row
+        let isPresent = $(this).find('input[type="checkbox"]').is(':checked');
         attendance[studentId] = {
             dateTime: attendanceDateTime,
             status: isPresent ? 'Present' : 'Absent'
