@@ -129,7 +129,3 @@ $(document).ready(function() {
     let currentTime = moment().format('YYYY-MM-DD HH:mm:ss');
     $('#attendanceDateTime input').val(currentTime);
 });
-
-    let currentTime = moment().format('YYYY-MM-DD HH:mm');
-    $('#attendanceDateTime input').val(currentTime);
-});
