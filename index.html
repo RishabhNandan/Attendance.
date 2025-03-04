@@ -16,12 +16,10 @@
     <script src="https://cdn.jsdelivr.net/npm/exceljs@4.3.0/dist/exceljs.min.js"></script>
 </head>
 <body>
-    <div class="container-fluid">
-        <h1 id="welcomeMessage">Welcome to CMP Degree College</h1>
-        <div class="button-group">
-            <button id="loginButton" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
-            <button id="registerButton" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
-        </div>
+    <div class="container mt-5">
+        <h1 id="welcomeMessage">Student Attendance Management</h1>
+        <button id="loginButton" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+        <button id="registerButton" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
         <button id="logoutButton" class="btn btn-danger" style="display: none;">Logout</button>
         <span id="usernameDisplay" style="display: none;"></span>
         <button class="btn btn-primary" id="addStudentButton" style="display: none;" data-bs-toggle="modal" data-bs-target="#addStudentModal">Add Student</button>
@@ -33,17 +31,12 @@
                 <tr>
                     <th>Student ID</th>
                     <th>Name</th>
-                    <th>Subject</th>
                     <th>Attendance</th>
                 </tr>
             </thead>
             <tbody id="studentTableBody">
             </tbody>
         </table>
-        <div id="attendanceView" style="display: none;">
-            <h3>Attendance Records</h3>
-            <div id="attendanceRecords"></div>
-        </div>
     </div>
 
     <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
@@ -115,10 +108,6 @@
                             <label for="studentName" class="form-label">Name</label>
                             <input type="text" class="form-control" id="studentName" required>
                         </div>
-                        <div class="mb-3">
-                            <label for="subject" class="form-label">Subject</label>
-                            <input type="text" class="form-control" id="subject" required>
-                        </div>
                         <button type="submit" class="btn btn-primary">Add Student</button>
                     </form>
                 </div>
@@ -158,7 +147,6 @@
             </div>
         </div>
     </div>
-   <!-- <div <button class="btn btn-primary" id="markAllAttendanceButton" style="display: none;">Mark All Attendance</button> </div>-->
 
     <script src="script.js"></script>
 </body>
