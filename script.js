@@ -83,29 +83,32 @@ $('#addStudentForm').submit(function(e) {
         $('#markAttendanceModal').modal('show');
     });
 
-   $('#markAttendanceButton').click(function() {
-    let attendanceFormHtml = '<form id="markAttendanceForm">';
-    attendanceFormHtml += '<label>Attendance Date & Time:</label>';
-    attendanceFormHtml += '<input type="text" id="attendanceDateTimeInput" class="form-control" />';
-    attendanceFormHtml += '<table class="table table-striped"><thead><tr><th>Select</th><th>Student ID</th><th>Name</th><th>Subject</th></tr></thead><tbody>';
-    students.forEach(student => {
-        attendanceFormHtml += '<tr>';
-        attendanceFormHtml += '<td><input type="checkbox" class="attendanceCheckbox" data-id="' + student.id + '"></td>';
-        attendanceFormHtml += '<td>' + student.id + '</td>';
-        attendanceFormHtml += '<td>' + student.name + '</td>';
-        attendanceFormHtml += '<td>' + student.subject + '</td>';
-        attendanceFormHtml += '</tr>';
+$('#addStudentForm').submit(function(e) {
+        e.preventDefault();
+        let studentId = $('#studentId').val();
+        let studentName = $('#studentName').val();
+        let subject = $('#subject').val();
+        students.push({ id: studentId, name: studentName, subject: subject });
+        $('#studentTableBody').append('<tr><td>' + studentId + '</td><td>' + studentName + '</td><td>' + subject + '</td><td></td></tr>');
+        $('#addStudentModal').modal('hide');
     });
-    attendanceFormHtml += '</tbody></table>';
-    attendanceFormHtml += '<button type="submit" class="btn btn-primary">Submit</button>';
-    attendanceFormHtml += '</form>';
-    
-    $('#markAttendanceModal .modal-body').html(attendanceFormHtml);
-    $('#markAttendanceModal').modal('show');
-    
-    $('#attendanceDateTimeInput').datetimepicker({ format: 'YYYY-MM-DD HH:mm:ss' });
-    $('#attendanceDateTimeInput').val(moment().format('YYYY-MM-DD HH:mm:ss'));
-});
+
+    $('#markAttendanceButton').click(function() {
+        $('#markAttendanceModal').modal('show');
+    });
+
+    $('#markAttendanceForm').submit(function(e) {
+        e.preventDefault();
+        let attendanceDateTime = $('#attendanceDateTime input').val();
+        let attendanceStatus = $('#attendanceStatus').val();
+        attendance[attendanceDateTime] = attendanceStatus;
+        $('#studentTableBody tr').each(function() {
+            let studentId = $(this).find('td:first').text();
+            let subject = $(this).find('td:nth-child(3)').text();
+            $(this).find('td:last').text(attendanceStatus + ' at ' + attendanceDateTime + ' for ' + subject);
+        });
+        $('#markAttendanceModal').modal('hide');
+    });
 
 $(document).on('submit', '#markAttendanceForm', function(e) {
     e.preventDefault();
