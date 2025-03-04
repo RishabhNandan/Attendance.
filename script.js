@@ -68,27 +68,22 @@ $('#addStudentForm').submit(function(e) {
         $('#studentTableBody').append('<tr><td>' + studentId + '</td><td>' + studentName + '</td><td>' + subject + '</td><td></td></tr>');
         $('#addStudentModal').modal('hide');
     });
-
-    $('#markAttendanceButton').click(function() {
-        $('#markAttendanceModal').modal('show');
-    });
-
 $('#studentTableBody').append('<tr><td>' + studentId + '</td><td>' + studentName + '</td><td>' + subject + '</td><td><input type="checkbox" class="attendanceCheckbox"></td></tr>');
-$('#markAttendanceForm').submit(function(e) {
-    e.preventDefault();
-    let attendanceDateTime = $('#attendanceDateTime input').val();
+ $('#markAllAttendanceButton').click(function() {
+    let attendanceDateTime = moment().format('YYYY-MM-DD HH:mm:ss');
     $('#studentTableBody tr').each(function() {
         let studentId = $(this).find('td:first').text();
-        let studentName = $(this).find('td:nth-child(2)').text();
-        let subject = $(this).find('td:nth-child(3)').text();
-        let isPresent = $(this).find('input[type="checkbox"]').is(':checked');
         attendance[studentId] = {
             dateTime: attendanceDateTime,
-            status: isPresent ? 'Present' : 'Absent'
+            status: 'Absent'
         };
-        $(this).find('td:last').text((isPresent ? 'Present' : 'Absent') + ' at ' + attendanceDateTime + ' for ' + subject);
+        $(this).find('td:last').text('Absent at ' + attendanceDateTime);
     });
-    $('#markAttendanceModal').modal('hide');
+    $('#studentTableBody input[type="checkbox"]:checked').each(function() {
+        let studentId = $(this).closest('tr').find('td:first').text();
+        attendance[studentId].status = 'Present';
+        $(this).closest('tr').find('td:last').text('Present at ' + attendanceDateTime);
+    });
 });
     $('#viewAttendanceButton').click(function() {
         let attendanceHtml = '<table class="table table-striped"><thead><tr><th>Name</th><th>Subject</th><th>Attendance</th></tr></thead><tbody>';
