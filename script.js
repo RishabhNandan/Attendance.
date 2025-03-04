@@ -69,20 +69,31 @@ $('#addStudentForm').submit(function(e) {
         $('#addStudentModal').modal('hide');
     });
 
- $('#markAllAttendanceButton').click(function() {
-    let attendanceDateTime = moment().format('YYYY-MM-DD HH:mm:ss');
-    $('#studentTableBody tr').each(function() {
-        let studentId = $(this).find('td:first').text();
-        attendance[studentId] = {
-            dateTime: attendanceDateTime,
-            status: 'Absent'
-        };
-        $(this).find('td:last').text('Absent at ' + attendanceDateTime);
+$('#addStudentForm').submit(function(e) {
+        e.preventDefault();
+        let studentId = $('#studentId').val();
+        let studentName = $('#studentName').val();
+        let subject = $('#subject').val();
+        students.push({ id: studentId, name: studentName, subject: subject });
+        $('#studentTableBody').append('<tr><td>' + studentId + '</td><td>' + studentName + '</td><td>' + subject + '</td><td></td></tr>');
+        $('#addStudentModal').modal('hide');
     });
-    $('#studentTableBody input[type="checkbox"]:checked').each(function() {
-        let studentId = $(this).closest('tr').find('td:first').text();
-        attendance[studentId].status = 'Present';
-        $(this).closest('tr').find('td:last').text('Present at ' + attendanceDateTime);
+
+    $('#markAttendanceButton').click(function() {
+        $('#markAttendanceModal').modal('show');
+    });
+
+    $('#markAttendanceForm').submit(function(e) {
+        e.preventDefault();
+        let attendanceDateTime = $('#attendanceDateTime input').val();
+        let attendanceStatus = $('#attendanceStatus').val();
+        attendance[attendanceDateTime] = attendanceStatus;
+        $('#studentTableBody tr').each(function() {
+            let studentId = $(this).find('td:first').text();
+            let subject = $(this).find('td:nth-child(3)').text();
+            $(this).find('td:last').text(attendanceStatus + ' at ' + attendanceDateTime + ' for ' + subject);
+        });
+        $('#markAttendanceModal').modal('hide');
     });
 });
     $('#viewAttendanceButton').click(function() {
