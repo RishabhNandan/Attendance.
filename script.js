@@ -68,7 +68,7 @@ $('#addStudentForm').submit(function(e) {
         $('#studentTableBody').append('<tr><td>' + studentId + '</td><td>' + studentName + '</td><td>' + subject + '</td><td></td></tr>');
         $('#addStudentModal').modal('hide');
     });
-$('#studentTableBody').append('<tr><td>' + studentId + '</td><td>' + studentName + '</td><td>' + subject + '</td><td><input type="checkbox" class="attendanceCheckbox"></td></tr>');
+
  $('#markAllAttendanceButton').click(function() {
     let attendanceDateTime = moment().format('YYYY-MM-DD HH:mm:ss');
     $('#studentTableBody tr').each(function() {
