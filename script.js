@@ -73,10 +73,7 @@ $('#addStudentForm').submit(function(e) {
         $('#markAttendanceModal').modal('show');
     });
 
-   // Add the select box in the student row
 $('#studentTableBody').append('<tr><td>' + studentId + '</td><td>' + studentName + '</td><td>' + subject + '</td><td><input type="checkbox" class="attendanceCheckbox"></td></tr>');
-
-// Modify the mark attendance functionality
 $('#markAttendanceForm').submit(function(e) {
     e.preventDefault();
     let attendanceDateTime = $('#attendanceDateTime input').val();
