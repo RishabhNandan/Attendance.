@@ -1,11 +1,18 @@
 body {
     font-family: Arial, sans-serif;
     background: url('yt.png') no-repeat center center fixed;
-    background-size: cover;
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: changeBackground 40s infinite alternate;
     margin: 0;
     padding: 0;
 }
-
+@keyframes changeBackground {
+    0% { background-image: url('/yt.png'); }
+    50% { background-image: url('/images\ \(1\).jpeg'); }
+    80% { background-image: url('/images.jpeg'); }
+    100% { background-image: url('/images\ \(2\).jpeg'); }
 .container-fluid {
     padding: 230px;
     text-align: center;
