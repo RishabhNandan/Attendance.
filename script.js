@@ -128,4 +128,4 @@ $(document).ready(function() {
     // Set current date and time
     let currentTime = moment().format('YYYY-MM-DD HH:mm:ss');
     $('#attendanceDateTime input').val(currentTime);
-});
+}); 
