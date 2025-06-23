@@ -3,14 +3,14 @@
 
 ## Introduction
 
-The Attendance Management System is a web application designed to track and manage attendance for various purposes. The system provides a straightforward interface for recording attendance data, generating reports, and analyzing attendance patterns.
+The Attendance Management System is a web application designed to track and manage attendance for various purposes. The system provides a straightforward interface for recording attendance data, generating reports, and analysing attendance patterns.
 
 ## Features
 
 - **User Authentication**: Secure login and registration for users.
 - **Attendance Tracking**: Record attendance data efficiently.
-- **Reports Generation**: Generate attendance reports for various time periods.
-- **Data Analysis**: Analyze attendance patterns and trends.
+- **Reports Generation**: Generate attendance reports for various periods.
+- **Data Analysis**: Analyse attendance patterns and trends.
 
 ## Installation
 
@@ -35,7 +35,7 @@ The Attendance Management System is a web application designed to track and mana
 1. **Login/Register**: Users can register for a new account or log in to an existing account.
 2. **Record Attendance**: Navigate to the attendance page to record attendance for users.
 3. **Generate Reports**: Access the reports section to generate and view attendance reports.
-4. **Analyze Data**: Use the analytics section to analyze attendance data and trends.
+4. **Analyse Data**: Utilise the analytics section to examine attendance data and trends.
 
 ## Directory Structure
 
@@ -72,7 +72,7 @@ Attendance/
 This project is licensed under the MIT License.
 
 # live link
-[attendencecmp.netlify.app](https://attendencecmp.netlify.app)
+[attendancecmp.netlify.app](https://attendencecmp.netlify.app)
 
 # Damo
 
