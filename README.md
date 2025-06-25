@@ -12,7 +12,7 @@ The Attendance Management System is a web application designed to track and mana
 - **Reports Generation**: Generate attendance reports for various periods.
 - **Data Analysis**: Analyse attendance patterns and trends.
 
-## Installation
+## Installation 
 
 1. **Clone the Repository**:
    ```bash
