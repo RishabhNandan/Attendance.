@@ -15,7 +15,7 @@ $(document).ready(function() {
         $('#markAttendanceButton').show();
         $('#viewAttendanceButton').show();
         $('#exportToExcelButton').show();
-        $('#studentTable').show();
+        $('#studentTable').show(); 
     }
 
     $('#loginForm').submit(function(e) {
