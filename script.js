@@ -6,7 +6,7 @@ let registeredUsers = {};
 
 $(document).ready(function() {
     if (localStorage.getItem('username') && localStorage.getItem('password')) {
-        username = localStorage.getItem('username');
+        username = localStorage.getItem('username'); 
         password = localStorage.getItem('password');
         $('#loginButton').hide();
         $('#usernameDisplay').text('Welcome, ' + username).show();
