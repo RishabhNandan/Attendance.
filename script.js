@@ -3,7 +3,6 @@ let attendance = {};
 let username = '';
 let password = ''; 
 let registeredUsers = {};
-
 $(document).ready(function() {
     if (localStorage.getItem('username') && localStorage.getItem('password')) {
         username = localStorage.getItem('username'); 
