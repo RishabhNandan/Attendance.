@@ -100,7 +100,7 @@ $(document).ready(function() {
         $('#attendanceRecords').html(attendanceHtml);
         $('#attendanceView').show();
     });
-
+ 
     $('#exportToExcelButton').click(function() {
         let workbook = new ExcelJS.Workbook();
         let worksheet = workbook.addWorksheet('Attendance');
