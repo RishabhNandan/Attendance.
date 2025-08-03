@@ -1,6 +1,6 @@
 let students = [];
 let attendance = {};
-let username = '';
+let username = ''; 
 let password = ''; 
 let registeredUsers = {};
 $(document).ready(function() {
